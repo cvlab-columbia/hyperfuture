@@ -1,0 +1,14 @@
+geoopt @ git+https://github.com/geoopt/geoopt.git@30b5d52d95b1e941d1d89bc3998f821a5a6f0f40
+matplotlib==3.2.2
+numpy==1.18.5
+opencv-python==4.3.0.36
+pandas==1.0.5
+Pillow==7.2.0
+scikit-image==0.17.2
+scikit-learn==0.23.1
+scipy==1.5.1
+tensorboard==2.4.0
+torch==1.7.0.dev20200705
+torchvision==0.8.0.dev20200705
+tqdm==4.47.0
+transformations==2020.1.1
