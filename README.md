@@ -1,6 +1,6 @@
 # Learning the Predictability of the Future
 
-Code from the paper [Learning the Predictability of the Future](https://arxiv.org/abs/XXXX).
+Code from the paper [Learning the Predictability of the Future](https://arxiv.org/abs/2101.01600).
 
 Website of the project in [hyperfuture.cs.columbia.edu](https://hyperfuture.cs.columbia.edu).
 
