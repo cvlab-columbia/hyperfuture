@@ -21,11 +21,11 @@ Be sure to have the external libraries in `requirements.txt` installed.
 If you use this code, please consider citing the paper as:
 
 ```
-@article{suris2020hyperfuture,
+@article{suris2021hyperfuture,
     title={Learning the Predictability of the Future},
     author={Sur\'is, D\'idac and Liu, Ruoshi and Vondrick, Carl},
-    journal={arXiv},
-    year={2020}
+    journal={arXiv preprint arXiv:2101.01600},
+    year={2021}
 }
 ```
 
