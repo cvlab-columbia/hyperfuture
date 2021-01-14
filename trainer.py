@@ -85,7 +85,7 @@ class Trainer:
                 # Get sequence predictions
                 with autocast(enabled=self.args.fp16):
                     with torch.set_grad_enabled(train):
-                        output_model, radius = self.model(input_seq, labels)
+                        output_model = self.model(input_seq, labels)
 
                     if self.args.cross_gpu_score:
                         pred, feature_dist, sizes_pred = output_model
