@@ -86,6 +86,10 @@ class Kinetics600(data.Dataset):
             self.video_info = self.video_info.sample(1000, random_state=666)
         # shuffle not necessary because use RandomSampler
 
+        path_folders = os.path.join(self.path_dataset, mode)
+        valid_folders = [text for text in os.listdir(path_folders) if os.path.isdir(os.path.join(path_folders, text))]
+        self.label_to_id = {text: i for i, text in enumerate(valid_folders)}
+
     def idx_sampler(self, vlen, vpath):
         '''sample index from a video'''
         if vlen - self.num_seq * self.seq_len * self.downsample <= 0: return [None]
@@ -107,14 +111,18 @@ class Kinetics600(data.Dataset):
         assert idx_block.shape == (self.num_seq, self.seq_len)
         idx_block = idx_block.reshape(self.num_seq * self.seq_len)
 
-        seq = [pil_loader(os.path.join(vpath, 'image_%05d.jpg' % (i + 1))) for i in idx_block]
+        seq = [pil_loader(os.path.join(self.path_dataset, vpath, 'image_%05d.jpg' % (i + 1))) for i in idx_block]
         t_seq = self.transform(seq)  # apply same transform
         (C, H, W) = t_seq[0].size()
         t_seq = torch.stack(t_seq, 0)
         t_seq = t_seq.view(self.num_seq, self.seq_len, C, H, W).transpose(1, 2)
+
+        label_text = vpath.split('/')[-2]
+        label = self.label_to_id[label_text]
+
         if self.return_idx:
-            return t_seq, 0, index
-        return t_seq, 0  # placeholder for labels, need implement
+            return t_seq, label, index
+        return t_seq, label
 
     def __len__(self):
         return len(self.video_info)
@@ -522,7 +530,7 @@ class MovieNet(data.Dataset):
         return len(self.subclip_seqs)
 
 
-def get_data(args, mode='train', return_label=False, hierarchical_label=False, action_level_gt=False, \
+def get_data(args, mode='train', return_label=False, hierarchical_label=False, action_level_gt=False,
              num_workers=0, path_dataset='', path_data_info=''):
     if hierarchical_label and args.dataset not in ['finegym', 'hollywood2']:
         raise Exception('Hierarchical information is only implemented in finegym and hollywood2 datasets')
