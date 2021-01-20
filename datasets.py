@@ -33,6 +33,9 @@ def pil_loader(path):
 
 
 class Kinetics600(data.Dataset):
+    """
+    This class expects the video frames to be extracted as .jpg files under path_dataset/split/class_name/video_id/*.jpg
+    """
     def __init__(self,
                  mode='train',
                  transform=None,
