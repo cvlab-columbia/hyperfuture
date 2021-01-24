@@ -190,7 +190,7 @@ class Hollywood2(data.Dataset):
         # Read action and index
         self.dict_labels = {}
         self.dict_labels_hier = {}
-        label_path = os.path.join(self.path_dataset, 'hollywood2/class_Ind')
+        label_path = os.path.join(self.path_dataset, 'class_Ind')
         with open(os.path.join(label_path, 'class_Ind.txt'), 'r') as f:
             for line in f:
                 action, label = line.split()
