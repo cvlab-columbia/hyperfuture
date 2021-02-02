@@ -4,7 +4,7 @@ Code from the paper [Learning the Predictability of the Future](https://arxiv.or
 
 Website of the project in [hyperfuture.cs.columbia.edu](https://hyperfuture.cs.columbia.edu).
 
-This code is built on the DPC code in [github.com/TengdaHan/DPC](https://github.com/geoopt/geoopt).
+This code is built on the DPC code in [github.com/TengdaHan/DPC](https://github.com/TengdaHan/DPC).
 We also used hyperbolic networks from [github.com/geoopt/geoopt](https://github.com/geoopt/geoopt) and hyperbolic
 operations from the [geoopt](https://github.com/geoopt/geoopt) library.
 
