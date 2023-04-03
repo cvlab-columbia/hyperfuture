@@ -1,4 +1,4 @@
-# Learning the Predictability of the Future
+# Learning the Predictability of the Future 
 
 Code from the paper [Learning the Predictability of the Future](https://arxiv.org/abs/2101.01600).
 
